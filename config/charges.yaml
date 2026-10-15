@@ -1,0 +1,8 @@
+charge_types:
+  light_dues: [light dues, lighthouse dues]
+  port_dues: [port dues, port fees on vessels]
+  vts: [vessel traffic services, VTS]
+  pilotage: [pilotage, pilot service]
+  towage: [towage, tugs, craft assistance]
+  berthing_services: [berthing services, berthing gang, unberthing]
+  running_of_lines: [running of vessel lines, mooring lines, launch]

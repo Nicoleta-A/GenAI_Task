@@ -1,0 +1,467 @@
+{
+  "document": "Transnet Tariff Book Apr 2024 - Mar 2025",
+  "rules": [
+    {
+      "id": "light_dues_per_100gt",
+      "charge_type": "light_dues",
+      "ports": ["*"],
+      "applies_when": "True",
+      "bands": [
+        {
+          "when": "True",
+          "components": [
+            {
+              "label": "light dues",
+              "rate": 117.08,
+              "per": "gt",
+              "unit_size": 100,
+              "rounding": "ceil",
+              "over": 0,
+              "times": "1"
+            }
+          ]
+        }
+      ],
+      "modifiers": [],
+      "minimum": null,
+      "currency": "ZAR",
+      "source_page": 9,
+      "source_quote": "Per 100 tons or part thereof 117.08",
+      "assumptions": ["per-metre variant for vessels at registered port omitted"]
+    },
+    {
+      "id": "port_dues",
+      "charge_type": "port_dues",
+      "ports": ["*"],
+      "applies_when": "True",
+      "bands": [
+        {
+          "when": "True",
+          "components": [
+            {
+              "label": "basic fee",
+              "rate": 192.73,
+              "per": "gt",
+              "unit_size": 100,
+              "rounding": "ceil",
+              "over": 0,
+              "times": "1"
+            },
+            {
+              "label": "per 24h pro rata",
+              "rate": 57.79,
+              "per": "gt",
+              "unit_size": 100,
+              "rounding": "ceil",
+              "over": 0,
+              "times": "days_alongside"
+            }
+          ]
+        }
+      ],
+      "modifiers": [],
+      "minimum": null,
+      "currency": "ZAR",
+      "source_page": 21,
+      "source_quote": "Basic fee per 100 tons or part thereof 192.73 plus per 100 tons per 24 hour period 57.79",
+      "assumptions": []
+    },
+    {
+      "id": "vts_durban_saldanha",
+      "charge_type": "vts",
+      "ports": ["Durban", "Saldanha Bay"],
+      "applies_when": "True",
+      "bands": [
+        {
+          "when": "True",
+          "components": [
+            {
+              "label": "VTS",
+              "rate": 0.65,
+              "per": "gt",
+              "unit_size": 1,
+              "rounding": "none",
+              "over": 0,
+              "times": "1"
+            }
+          ]
+        }
+      ],
+      "modifiers": [],
+      "minimum": 235.52,
+      "currency": "ZAR",
+      "source_page": 11,
+      "source_quote": "Payable per GT per port call at the ports of Durban and Saldanha Bay 0.65",
+      "assumptions": []
+    },
+    {
+      "id": "vts_other_ports",
+      "charge_type": "vts",
+      "ports": ["*"],
+      "applies_when": "True",
+      "bands": [
+        {
+          "when": "True",
+          "components": [
+            {
+              "label": "VTS",
+              "rate": 0.54,
+              "per": "gt",
+              "unit_size": 1,
+              "rounding": "none",
+              "over": 0,
+              "times": "1"
+            }
+          ]
+        }
+      ],
+      "modifiers": [],
+      "minimum": 235.52,
+      "currency": "ZAR",
+      "source_page": 11,
+      "source_quote": "Payable per GT per port call at all ports excluding Durban and Saldanha Bay 0.54",
+      "assumptions": []
+    },
+    {
+      "id": "pilotage_durban",
+      "charge_type": "pilotage",
+      "ports": ["Durban"],
+      "applies_when": "True",
+      "bands": [
+        {
+          "when": "True",
+          "components": [
+            {
+              "label": "basic fee",
+              "rate": 18608.61,
+              "per": null,
+              "unit_size": 1,
+              "rounding": "none",
+              "over": 0,
+              "times": "num_operations"
+            },
+            {
+              "label": "per 100 tons",
+              "rate": 9.72,
+              "per": "gt",
+              "unit_size": 100,
+              "rounding": "ceil",
+              "over": 0,
+              "times": "num_operations"
+            }
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "label": "50% surcharge outside ordinary working hours",
+          "when": "outside_ordinary_hours",
+          "factor": 1.5
+        }
+      ],
+      "minimum": null,
+      "currency": "ZAR",
+      "source_page": 13,
+      "source_quote": "Per Service (normal entering or leaving the port) Basic Fee 18 608.61 Per 100 tons or part thereof 9.72",
+      "assumptions": []
+    },
+    {
+      "id": "pilotage_richards_bay",
+      "charge_type": "pilotage",
+      "ports": ["Richards Bay"],
+      "applies_when": "True",
+      "bands": [
+        {
+          "when": "True",
+          "components": [
+            {
+              "label": "basic fee",
+              "rate": 30960.46,
+              "per": null,
+              "unit_size": 1,
+              "rounding": "none",
+              "over": 0,
+              "times": "num_operations"
+            },
+            {
+              "label": "per 100 tons",
+              "rate": 10.93,
+              "per": "gt",
+              "unit_size": 100,
+              "rounding": "ceil",
+              "over": 0,
+              "times": "num_operations"
+            }
+          ]
+        }
+      ],
+      "modifiers": [],
+      "minimum": null,
+      "currency": "ZAR",
+      "source_page": 13,
+      "source_quote": "Richards Bay Basic Fee Per 100 tons",
+      "assumptions": ["rates from port-swap hand calculation; verify against PDF"]
+    },
+    {
+      "id": "towage_durban",
+      "charge_type": "towage",
+      "ports": ["Durban"],
+      "applies_when": "True",
+      "bands": [
+        {
+          "when": "gt <= 2000",
+          "components": [
+            {
+              "label": "fee",
+              "rate": 8140.0,
+              "per": null,
+              "unit_size": 1,
+              "rounding": "none",
+              "over": 0,
+              "times": "num_operations"
+            }
+          ]
+        },
+        {
+          "when": "2000 < gt <= 10000",
+          "components": [
+            {
+              "label": "base",
+              "rate": 12633.99,
+              "per": null,
+              "unit_size": 1,
+              "rounding": "none",
+              "over": 0,
+              "times": "num_operations"
+            },
+            {
+              "label": "per 100 above 2000",
+              "rate": 268.99,
+              "per": "gt",
+              "unit_size": 100,
+              "rounding": "ceil",
+              "over": 2000,
+              "times": "num_operations"
+            }
+          ]
+        },
+        {
+          "when": "10000 < gt <= 50000",
+          "components": [
+            {
+              "label": "base",
+              "rate": 38494.51,
+              "per": null,
+              "unit_size": 1,
+              "rounding": "none",
+              "over": 0,
+              "times": "num_operations"
+            },
+            {
+              "label": "per 100 above 10000",
+              "rate": 84.95,
+              "per": "gt",
+              "unit_size": 100,
+              "rounding": "ceil",
+              "over": 10000,
+              "times": "num_operations"
+            }
+          ]
+        },
+        {
+          "when": "50000 < gt <= 100000",
+          "components": [
+            {
+              "label": "base",
+              "rate": 73118.07,
+              "per": null,
+              "unit_size": 1,
+              "rounding": "none",
+              "over": 0,
+              "times": "num_operations"
+            },
+            {
+              "label": "per 100 above 50000",
+              "rate": 32.24,
+              "per": "gt",
+              "unit_size": 100,
+              "rounding": "ceil",
+              "over": 50000,
+              "times": "num_operations"
+            }
+          ]
+        },
+        {
+          "when": "gt > 100000",
+          "components": [
+            {
+              "label": "base",
+              "rate": 93548.13,
+              "per": null,
+              "unit_size": 1,
+              "rounding": "none",
+              "over": 0,
+              "times": "num_operations"
+            },
+            {
+              "label": "per 100 above 100000",
+              "rate": 23.65,
+              "per": "gt",
+              "unit_size": 100,
+              "rounding": "ceil",
+              "over": 100000,
+              "times": "num_operations"
+            }
+          ]
+        }
+      ],
+      "modifiers": [],
+      "minimum": null,
+      "currency": "ZAR",
+      "source_page": 15,
+      "source_quote": "50 001 to 100 000 Plus Per 100 tons or part thereof above 50 000 73 118.07 32.24",
+      "assumptions": [
+        "only the 50,001-100,000 band is confirmed by the reference; verify other bands visually against the PDF"
+      ]
+    },
+    {
+      "id": "towage_richards_bay",
+      "charge_type": "towage",
+      "ports": ["Richards Bay"],
+      "applies_when": "True",
+      "bands": [
+        {
+          "when": "50000 < gt <= 100000",
+          "components": [
+            {
+              "label": "base",
+              "rate": 79999.76,
+              "per": null,
+              "unit_size": 1,
+              "rounding": "none",
+              "over": 0,
+              "times": "num_operations"
+            },
+            {
+              "label": "per 100 above 50000",
+              "rate": 30.11,
+              "per": "gt",
+              "unit_size": 100,
+              "rounding": "ceil",
+              "over": 50000,
+              "times": "num_operations"
+            }
+          ]
+        }
+      ],
+      "modifiers": [],
+      "minimum": null,
+      "currency": "ZAR",
+      "source_page": 15,
+      "source_quote": "Richards Bay towage band 50001-100000",
+      "assumptions": ["band rates from port-swap hand calculation; verify against PDF"]
+    },
+    {
+      "id": "berthing_richards_bay",
+      "charge_type": "berthing_services",
+      "ports": ["Richards Bay"],
+      "applies_when": "True",
+      "bands": [
+        {
+          "when": "True",
+          "components": [
+            {
+              "label": "basic fee",
+              "rate": 3175.89,
+              "per": null,
+              "unit_size": 1,
+              "rounding": "none",
+              "over": 0,
+              "times": "num_operations"
+            },
+            {
+              "label": "per 100 tons",
+              "rate": 13.46,
+              "per": "gt",
+              "unit_size": 100,
+              "rounding": "ceil",
+              "over": 0,
+              "times": "num_operations"
+            }
+          ]
+        }
+      ],
+      "modifiers": [],
+      "minimum": null,
+      "currency": "ZAR",
+      "source_page": 18,
+      "source_quote": "Richards Bay berthing basic fee plus per 100 tons",
+      "assumptions": ["rates from port-swap hand calculation; verify against PDF"]
+    },
+    {
+      "id": "berthing_other_ports",
+      "charge_type": "berthing_services",
+      "ports": ["*"],
+      "applies_when": "True",
+      "bands": [
+        {
+          "when": "True",
+          "components": [
+            {
+              "label": "basic fee",
+              "rate": 2801.91,
+              "per": null,
+              "unit_size": 1,
+              "rounding": "none",
+              "over": 0,
+              "times": "num_operations"
+            },
+            {
+              "label": "per 100 tons",
+              "rate": 13.68,
+              "per": "gt",
+              "unit_size": 100,
+              "rounding": "ceil",
+              "over": 0,
+              "times": "num_operations"
+            }
+          ]
+        }
+      ],
+      "modifiers": [],
+      "minimum": null,
+      "currency": "ZAR",
+      "source_page": 18,
+      "source_quote": "Other Ports Basic fee 2 801.91 Plus Per 100 tons or part thereof 13.68",
+      "assumptions": ["berthing and unberthing are two separate services"]
+    },
+    {
+      "id": "running_of_lines_other_ports",
+      "charge_type": "running_of_lines",
+      "ports": ["*"],
+      "applies_when": "True",
+      "bands": [
+        {
+          "when": "True",
+          "components": [
+            {
+              "label": "per service",
+              "rate": 1654.56,
+              "per": null,
+              "unit_size": 1,
+              "rounding": "none",
+              "over": 0,
+              "times": "num_operations"
+            }
+          ]
+        }
+      ],
+      "modifiers": [],
+      "minimum": null,
+      "currency": "ZAR",
+      "source_page": 19,
+      "source_quote": "Other Ports Per service 1 654.56",
+      "assumptions": []
+    }
+  ]
+}

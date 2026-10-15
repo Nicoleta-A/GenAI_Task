@@ -1,0 +1,14 @@
+{
+  "vessel": "SUDESTADA",
+  "port": "Richards Bay",
+  "currency": "ZAR",
+  "charges": {
+    "light_dues": {"expected": 60062.04, "abs_tol": 0.01},
+    "vts": {"expected": 27702.00, "abs_tol": 0.01},
+    "pilotage": {"expected": 73135.10, "abs_tol": 0.01},
+    "towage": {"expected": 160782.38, "abs_tol": 0.01},
+    "berthing_services": {"expected": 20161.74, "abs_tol": 0.01},
+    "running_of_lines": {"expected": 3309.12, "abs_tol": 0.01}
+  },
+  "notes": "Hand-computed from tariff columns; re-verify against PDF before trusting."
+}

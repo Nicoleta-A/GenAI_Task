@@ -1,0 +1,18 @@
+{
+  "vessel": "SUDESTADA",
+  "port": "Durban",
+  "currency": "ZAR",
+  "charges": {
+    "light_dues": {"expected": 60062.04, "abs_tol": 0.01},
+    "port_dues": {"expected": 199549.22, "rel_tol": 0.005},
+    "towage": {"expected": 147074.38, "abs_tol": 0.01},
+    "vts": {"expected": 33315.75, "rel_tol": 0.005},
+    "pilotage": {"expected": 47189.94, "abs_tol": 0.01},
+    "running_lines_reference": {
+      "maps_to": "berthing_services",
+      "expected": 19639.50,
+      "abs_tol": 0.01
+    }
+  },
+  "informational": {"running_of_lines": 3309.12}
+}

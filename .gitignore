@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.venv/
+venv/
+data/page_cache/
+data/llm_cache/
+data/rulebooks/
+_plan_extract.txt
+.env
+.DS_Store
